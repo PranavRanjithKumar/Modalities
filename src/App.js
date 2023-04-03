@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef, useEffect } from "react";
+import "./App.css";
+import FormSection from "./components/FormSection";
+import ViewSection from "./components/ViewSection";
 
 function App() {
+  const [showViewSection, setShowViewSection] = useState(false);
+  const ref = useRef();
+
+  const makeSectionVisibleNScrollable = () => {
+    setShowViewSection(true);
+    if (ref.current)
+      ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  useEffect(() => {
+    if (ref.current)
+      ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [ref, showViewSection]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <section className="sectionContainer">
+        <FormSection showSection={makeSectionVisibleNScrollable} />
+      </section>
+      {showViewSection && (
+        <section ref={ref} className="viewSectionContainer">
+          <ViewSection />
+        </section>
+      )}
+    </>
   );
 }
 

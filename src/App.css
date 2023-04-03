@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+.sectionContainer {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.viewSectionContainer {
+  display: flex;
+  height: 100%;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.section {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 560px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.section .header {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 54px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.section .inputSection {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.section .inputField {
+  margin-bottom: 30px;
+}
+
+.section .button {
+  width: 100%;
+  background-color: #0095f6;
+  border-radius: 12px;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.section .buttonText {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.section .image {
+  height: 460px;
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
